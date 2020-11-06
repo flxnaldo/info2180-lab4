@@ -65,7 +65,8 @@ $superheroes = [
 
 $heroArray = [];
 $q = $_REQUEST['q'];
-$q = preg_replace('/[^A-Za-z0-9 \-]/', '', $q);
+// $q = preg_replace('/[^A-Za-z0-9 \-]/', '', $q);
+$q = filter_var($q, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 if ($q !== ""){
 	$q = strtolower($q);  
 	foreach($superheroes as $superhero){
