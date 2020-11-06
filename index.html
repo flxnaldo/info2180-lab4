@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>INFO2180 - Lab 4 - Avengers Character Search</title>
     <link rel= "stylesheet" href="styles.css">
     <script src= "app.js" ></script>
 </head>
-</body>
-	<header>
-		<!-- <div class = "container"> -->
-		<h1> Avengers Character Search</h1>
-		<!-- </div> -->
+<body>
+<div class = "container">
+	<header id= "header">
+		<h1> AVENGERS CHARACTER SEARCH</h1>
 	</header>
-	<main>
-	<button type="button" id = "search" class="btn">Search</button>
-		<!-- section>
-		
-		</section>-->
-	</main> 
+	<main id = main>
+		<p> Search by Full Name or Alias </p>
+			<form>
+				<input type="text" name="input" id="input" placeholder="e.g. Captain America or Steve Rogers">
+				<button type="submit" id = "search" class="btn">Search</button>
+			</form>
+			<section>
+				<h2> RESULT </h2>
+				<hr>
+				<div id="result"></div>
+				<div id =superheroDiv>
+					<h3 id = "alias"></h3>
+					<h4 id = "name"></h4>
+					<p id = "biography"></p>
+					<p id = "noneFound"></p>
+				</div>
+			</section>
+	</main>
+</div>	
 </body>
 </html>

@@ -63,10 +63,24 @@ $superheroes = [
   ], 
 ];
 
+$heroArray = [];
+$q = $_REQUEST['q'];
+$q = preg_replace('/[^A-Za-z0-9 \-]/', '', $q);
+if ($q !== ""){
+	$q = strtolower($q);  
+	foreach($superheroes as $superhero){
+		$alias = strtolower($superhero['alias']);
+		$name = strtolower($superhero['name']);
+		if($q === $alias or $q === $name){
+			$heroArray = $superhero;
+		}
+	}
+	echo $heroArray === []? json_encode("Superhero not found") : json_encode($heroArray); 
+}else{
+	echo "<ul>";
+	foreach($superheroes as $superhero){
+		echo "<li>".$superhero['alias']."</li>";
+	}
+	echo "</ul>";
+}
 ?>
-
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
